@@ -1,29 +1,24 @@
+
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 
 class DioHelper
 {
   static late Dio dio;
-
   static init()
   {
-    dio = Dio(
+    dio=Dio(
       BaseOptions(
         baseUrl: 'https://newsapi.org/',
-        receiveDataWhenStatusError:true,
+        receiveDataWhenStatusError: true
       ),
     );
   }
 
-   static Future<Response> getData({
+    static Future<Response> getData({
     required String url,
-    required Map <String , dynamic> query,
+    required Map<String,dynamic> query
 })async
-{
- return await dio.get(
-   url,
-   queryParameters: query,
- );
-}
-
+  {
+    return await dio.get(url,queryParameters:query,);
+  }
 }
